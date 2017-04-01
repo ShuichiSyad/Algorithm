@@ -1,0 +1,117 @@
+package lab6q3;
+
+public class Lab6Q3 {
+static int HeapSize;
+static int[]A = {11,4,74,55,3,17,8,46,43,33};
+
+    public static void main(String[] args) {
+        buildMaxHeap(A);
+        
+        /*HEAP-EXTRACT-MAX: UNCOMMENT FOR THIS QUESTION TO RUN
+        Heap Extract Max untuk remove most top node 
+        and then susun semua ikut max heapify*/
+        
+//        HeapExtractMax(A);
+//        for(int k = 0; k<A.length; k++){
+//            System.out.println(A[k]);
+//        }
+        
+        /*HEAP-INCREASE-KEY: UNCOMMENT FOR THIS QUESTION TO RUN
+        Heap Increase Key, increase the value of any specified node,
+        lepas increased/change, susun semua ikut max heapify*/
+        
+//        HeapIncreaseKey(A,2,100); //Increase one key
+//        for(int k = 0; k<A.length; k++){
+//            System.out.println(A[k]);
+//        }
+
+        /*MAX-HEAP-INSERT:UNCOMMENT FOR THIS QUESTION TO RUN
+        Maz Heap Insert, insert new value to the array,
+        susun semua ikut max heapify*/
+        
+        MaxHeapInsert(A,99);  
+        
+    }
+    
+    public static void buildMaxHeap(int[]A){
+        HeapSize = A.length-1;
+        //start dari parent paling belakang (HeapSize/2)
+        for(int i = HeapSize/2; i>=0 ; i--)
+        MaxHeapify(A,i);
+    }
+    
+    public static int HeapExtractMax(int[]A){
+        HeapSize = A.length-1;
+        if (HeapSize < 1)
+            System.out.println("Heap Underflow");
+        
+        int max = A[0];
+        A[0]=A[HeapSize];
+        HeapSize -= 1;
+        MaxHeapify(A,0);
+        return max;
+    }
+    
+    public static void HeapIncreaseKey(int[]A,int i, int key){
+        if (key<A[i])
+            System.out.println("New key is smaller than current key");
+        
+        A[i] = key;
+        while (i>0 && (A[Parent(i)]<A[i])){
+            int temp = A[i];
+            A[i]=A[Parent(i)];
+            A[Parent(i)]=temp;
+            i=Parent(i);
+        }
+    }
+    
+    public static int Parent(int i){
+        return i/2;
+    }
+    
+    public static void MaxHeapInsert(int[]A, int key){
+        int baru = A.length+1;
+        int[]B = new int [baru];
+        
+        for(int z=0 ; z<B.length ;z++){
+            B[z]=A[z];
+            if(z==A.length-1) 
+                break;
+        }
+        B[B.length-1]=key;
+        HeapIncreaseKey(B, B.length-1, key);
+        
+        for (int i = 0; i<B.length ; i++){
+            System.out.println(B[i]);
+        }
+    }
+    
+    public static void MaxHeapify(int[]A, int i){
+        int l = Left(i); //2i
+        int r = Right(i); //2i+1
+        int largest=i;
+        
+        if(l<=HeapSize && A[l]>A[i])
+            largest = l;
+        
+        if(r<=HeapSize && A[r]>A[largest])
+            largest=r;
+        
+        if (largest!=i){
+            int temp = A[i];
+            A[i]=A[largest];
+            A[largest]=temp;
+            MaxHeapify(A,largest);
+        }
+    }
+    
+    // Return left child
+    public static int Left(int i){
+        return 2*i;
+    } 
+    
+    // Return right child
+    public static int Right(int i){
+        return 2*i+1;
+    }
+}
