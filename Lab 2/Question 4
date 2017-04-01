@@ -1,0 +1,40 @@
+public static void main(String[] args) {
+        int A[] = {4,29,2,2,110,99,5};
+        
+       // shellsort(A);
+        shellSort1(A);
+        for(int i =0 ; i< A.length ; i++)
+            System.out.println(A[i]);
+        
+    }
+
+   public static void shellSort1(int[] array) {
+    int gap = array.length / 2;
+    while (gap > 0) {
+        for (int i = 0; i < array.length - gap; i++) { 
+            
+          //  System.out.println("i " + i);
+            int j = i + gap;
+         //   System.out.println("gap " +j);
+            int tmp = array[j];
+         //   System.out.println("temp "+tmp);
+         //   System.out.println("array[j - gap] " + array[j-gap]);
+            while (j >= gap && tmp < array[j - gap]) {
+                array[j] = array[j - gap];
+           //     System.out.println("array[j] "+array[j]);
+                j -= gap;
+            //    System.out.println("gap = " + j);
+            //    System.out.println("");
+            }
+            array[j] = tmp;
+            //System.out.println("array[j] " +array[j]); 
+            // Kat sini kita nk tgk array yang dah diubah pabila dah berlaku swap
+        }
+        if (gap == 2) { //change the gap size
+            gap = 1;
+        } else {
+            gap /= 2;
+        }
+    }
+    
+}
