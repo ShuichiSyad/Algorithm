@@ -39,7 +39,7 @@
 
 //        To decrement value of sum and assign value to correct position to B
 	for(int j=0;j<A.length;j++){
-		B[C[A[j]]-1] = A[j]+min;    //Kena -1 sebab
+		B[C[A[j]]-1] = A[j]+min;
 		--C[A[j]];
 	}
         
