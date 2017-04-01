@@ -1,0 +1,9 @@
+//Powering a number
+
+public static int powerNumber(int a, int n) { // a is an integer, n is power to the integer (e.g. (2, 3) means 2 to the power of 3)
+        
+        if (n%2 == 0)   //if n is even number
+            return (int) Math.pow((Math.pow(a, n/2)), 2);
+        else //if n is odd number
+            return (int) Math.pow((Math.pow(a, (n-1)/2)), 2) * a;
+    }
