@@ -1,0 +1,12 @@
+public static int fibonacci(int n) { //n is the how many number in Fibonacci series to be printed (e.g. if n is 10, the 10 numbers will be printed)
+        
+        if (n == 0)
+            return 0;
+        
+        else if(n == 1)
+            return 1;
+        
+        else
+            return fibonacci(n-1) + fibonacci(n-2);
+        
+    }
