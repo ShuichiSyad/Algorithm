@@ -1,0 +1,40 @@
+package l4q2;
+import java.util.*;
+public class L4Q2 {
+    public static void main(String[] args) {
+    
+        int limit=30;
+        
+        Random rnd = new Random();
+        System.out.println("Random Boolean : "+rnd.nextBoolean());
+        System.out.println("Random Float : "+rnd.nextFloat());
+        System.out.println("Random Double : "+rnd.nextDouble());
+        System.out.println("Random Integer : "+rnd.nextInt());
+        System.out.println("Random Long : "+rnd.nextLong());
+        System.out.println("Random Integer (limit) : "+rnd.nextInt(limit));
+        System.out.println("Random Gaussian : "+rnd.nextGaussian());
+        
+        //RANDOM WITH SEED
+        System.out.println("\nRandom using seed");
+        Random rndSeed = new Random(12314);
+        System.out.println("Random Boolean : "+rndSeed.nextBoolean());
+        System.out.println("Random Float : "+rndSeed.nextFloat());
+        System.out.println("Random Double : "+rndSeed.nextDouble());
+        System.out.println("Random Integer : "+rndSeed.nextInt());
+        System.out.println("Random Long : "+rndSeed.nextLong());
+        System.out.println("Random Integer (limit) : "+rndSeed.nextInt(limit));
+        System.out.println("Random Gaussian : "+rndSeed.nextGaussian());
+        
+        System.out.println("\nRandom using seed :");
+        System.out.println("Random Boolean : "+rndSeed.nextBoolean());
+        System.out.println("Random Float : "+rndSeed.nextFloat());
+        System.out.println("Random Double : "+rndSeed.nextDouble());
+        System.out.println("Random Integer : "+rndSeed.nextInt());
+        System.out.println("Random Long : "+rndSeed.nextLong());
+        System.out.println("Random Integer (limit) : "+rndSeed.nextInt(limit));
+        System.out.println("Random Gaussian : "+rndSeed.nextGaussian());
+        
+        System.out.println("If run over and over again,the random with seed wont change");
+    }
+    
+}
