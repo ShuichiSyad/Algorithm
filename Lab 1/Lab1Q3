@@ -1,0 +1,39 @@
+package lab.pkg1.q3;
+import java.util.*;
+
+public class Lab1Q3 {
+    
+    public static void main(String[] args) {
+
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter Integer: ");
+    int num = input.nextInt();
+    
+    int max = 100;
+    int min = 1;
+    
+    Random rand = new Random();
+    int randoms;
+    int[] A = new int[100];
+    
+    for (int i = 0 ; i<=99 ; i++){
+        randoms = rand.nextInt(1000);
+        A[i]=randoms+1;
+        System.out.print(A[i] + " ");
+    } 
+    
+    boolean hai = false;
+    for (int j = 0 ; j <=99 ; j++){
+        
+    if (num == A[j])
+    hai = true;
+        }
+    
+        System.out.println("");
+    if (hai == true)
+            System.out.println("Success");
+    
+    else
+            System.out.println("Number is not in the array");
+    }
+}
