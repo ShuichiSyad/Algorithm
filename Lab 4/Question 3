@@ -1,0 +1,26 @@
+public static void main(String[] args) {
+       int A [] = {1,2,3,4};
+       shuffle(A);
+        for(int i=0 ; i<A.length ; i++)
+            System.out.println(A[i]);
+        //Using Fisher -Yates shuffle
+        //to prevent biast if use the normal shuffle 
+        //biast means the amount of generated number if unequal with all teh generated number
+        // refer http://datagenetics.com/blog/november42014/
+       
+    }
+
+    private static void shuffle(int[] A) {
+        Random x = new Random();
+        for(int i=A.length-1 ; i>=0 ; i--){
+            int rand = x.nextInt(i+1);
+            swap(A , i , rand);
+        }
+        
+    }
+
+    private static void swap(int[] A, int i, int rand) {
+        int temp = A[i];
+        A[i] = A[rand];
+        A[rand] = temp;
+    }
