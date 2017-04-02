@@ -1,9 +1,12 @@
-public static void main(String[] args) {
+package l3p1q5;
+import static java.lang.Math.floor;
+public class L3P1Q5 {
+    public static void main(String[] args) {
         int[] A = {2,3,4,1};
         MergeSort(A,0,A.length-1);
     }
-
-public static void merge(int arr[], int l, int m, int r)
+    
+    public static void merge(int arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
@@ -49,7 +52,7 @@ public static void merge(int arr[], int l, int m, int r)
             i++;
             k++;
         }
-        
+ 
         /* Copy remaining elements of L[] if any */
         while (j < n2)
         {
@@ -75,3 +78,11 @@ public static void merge(int arr[], int l, int m, int r)
             print(A);
         }
     }
+    
+    public static void print(int[] array){
+        for(int i:array){
+            System.out.print(i+" ");
+        }
+    }
+    
+}
