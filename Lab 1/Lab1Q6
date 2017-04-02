@@ -1,0 +1,32 @@
+package lab.pkg1.q6;
+
+public class Lab1Q6 {
+
+    public static void main(String[] args) {
+        
+        int[]A = {1,2,3};
+        int[]B = {5,11,9};
+        int[]C = {7,0,0};
+        
+        rotateLeft3(A);
+        rotateLeft3(B);
+        rotateLeft3(C);
+        
+    }
+    
+    public static void rotateLeft3(int[]A){
+        
+        int temp = (A[0]);
+        
+        for(int i = 0 ; i < A.length-1 ; i++){
+            A[i]=A[i+1];
+        }
+        
+        A[A.length-1] = temp;
+        
+        for(int j = 0 ; j <A.length ; j++){
+            System.out.print(A[j] + " ");
+        }
+        System.out.println("");
+    }
+}
