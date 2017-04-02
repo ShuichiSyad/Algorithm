@@ -1,0 +1,49 @@
+// This one includes question 1 and question 2 of Part B
+package lab1partb;
+import java.util.*;
+
+public class Lab1PartB {
+
+    static String key = null;
+    static Map <String,String> map = new HashMap<String,String>();
+    
+    public static void main(String[] args) {
+        
+        map.put("a","candy");
+        map.put("b","dirt");
+        map.put("c", "meh");
+        
+        System.out.println("Original");
+        System.out.println("a = " +  map.get("a") + " \nb = " + map.get("b")+ " \nc = " + map.get("c"));
+        
+        
+        System.out.println("\nAfter bully");
+        mapBully(map.get("a"),map.get("b"));
+        
+       // Question 2
+       
+        System.out.println("\nQuestion 2");
+        String[]a = {"a","b","hello","c"};
+        word0(a);
+        
+        
+    }
+    
+    public static void mapBully(String a, String b){
+        
+        if(map.get("a")!= null){
+            map.put("b", a);
+            map.put("a", "");
+        }
+            System.out.println("a = " +  map.get("a") + " \nb = " + map.get("b")+ " \nc = " + map.get("c"));
+    }
+    
+    public static void word0(String[]A){
+        Map <String,Integer> map = new HashMap<String,Integer>();
+        
+        for(int i = 0 ; i<A.length ; i++){
+            map.put(A[i], 0);
+            System.out.println(A[i] + " : " + map.get(A[i]));
+        }
+    }
+}
