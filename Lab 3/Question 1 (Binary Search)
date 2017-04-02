@@ -1,1 +1,62 @@
+BinarySearch(A[0..N-1], value) {
+   low = 0
+   high = N - 1
+   while (low <= high) {
+       mid = low + ((high - low) / 2)
+       if (A[mid] > value)
+           high = mid - 1
+       else if (A[mid] < value)
+           low = mid + 1
+       else
+           return mid // found
+   }
+   return -1 // not found
+}
 
+
+
+
+package lab3;
+
+public class Lab3 {
+
+    public static void main(String[] args) {
+        int[]forBS = {1,45,67,990,32432,5654656,78788687};
+        int[]A = {3,64,354,2,45,8,6};
+        BinarySearch(45, forBS);
+        
+    }
+    
+    public static int[] MergeSort(int[]A){
+        int[]Sorted = new int[A.length];
+        
+        return Sorted;
+    }
+    
+    public static void BinarySearch(int SearchKey, int[]A){
+        int low = 0;
+        int high = A.length - 1;
+        int mid; 
+        boolean status = false;
+        
+        while(low<=high){
+            mid = low + ((high-low)/2);
+            
+            if(SearchKey < A[mid])
+                high = mid - 1;
+            
+            else if (SearchKey > A[mid])
+                low = mid + 1;
+            else{
+                status = true;
+                break;
+            }
+        }
+        
+        if (status==true)
+            System.out.println("Found");
+        else
+            System.out.println("Not found");
+    }
+    
+}
