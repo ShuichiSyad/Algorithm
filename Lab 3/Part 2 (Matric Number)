@@ -1,0 +1,70 @@
+package missingnumber;
+public class MissingNumber {
+    public static void main(String[] args) {
+        int[] A = {1,2,4,5,6,7,8,9,10,11,12,13};
+        missingNum(A,"Start",0,A.length);
+    }
+    
+    public static void missingNum(int[] passed,String side,int start,int end){
+        int[] A = new int[end-start];
+        for(int i=0;i<(end);i++){
+            A[i] = passed[i+start];
+//            System.out.println("A["+i+"] = passed["+(i+start)+"] : "+passed[(i+start)]);
+        }
+        
+        double calculatedMiddle;
+        double middle = (A[A.length-1] + A[0]) / 2.0;
+        double midPointer = ((A.length-1)/2.0);
+        if(A.length%2==0){
+            calculatedMiddle = (A[(int)middle-1] + A[(int)middle])/2.0;
+        }else{
+            calculatedMiddle = A[(int)middle-1];
+        }
+        System.out.println("\n\n"+side);
+        System.out.println("Supposed Median = "+middle);
+        System.out.println("Calculated Middle = "+calculatedMiddle);
+        
+        int[] LEFT = new int[A.length/2];
+        int[] RIGHT = new int[A.length-(A.length/2)];
+        
+        System.out.println("Left space : "+LEFT.length);
+        System.out.println("Right space : "+RIGHT.length);
+            for(int duplicate=0;duplicate<LEFT.length;duplicate++){
+                LEFT[duplicate] = A[duplicate];
+            }
+        System.out.print("Left array : ");
+        print(LEFT);
+            for(int duplicate=0;duplicate<RIGHT.length;duplicate++){
+                RIGHT[duplicate] = A[duplicate+(int)A.length-(A.length/2)];
+            }
+        System.out.print("\nRight array : ");
+        print(RIGHT);
+       
+        System.out.println("\nMiddle -> ["+(A.length-(A.length/2))+"]");
+        
+        double medianLEFT = (LEFT[LEFT.length-1]+LEFT[0])/2.0;
+        double middleLEFT;
+        double midLEFT = LEFT.length/2.0;
+        if(LEFT.length%2==0){
+            middleLEFT = ((LEFT[(int)(midLEFT-1)] + LEFT[(int)midLEFT])/2.0);
+        }else{
+            System.out.println("Mid position : "+(int)midLEFT);
+            middleLEFT = LEFT[(int)(midLEFT)];
+        }
+        System.out.println("Supposed Median for left : "+medianLEFT);
+        System.out.println("Actual Middle for left : "+middleLEFT);
+        
+        if(middleLEFT==medianLEFT) //LEFT x de masalah
+            missingNum(RIGHT,"Partition Right",0,RIGHT.length);
+        else{
+            missingNum(LEFT,"Partition Left",0,LEFT.length);
+        }
+    }
+    
+    public static void print(int[] A){
+        for(int i:A){
+            System.out.print(i+" ");
+        }
+    }
+    
+}
