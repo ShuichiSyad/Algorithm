@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class AlgoLab9 {
+
+    public static void main(String[] args) {
+      BSTN bst = new BSTN();
+      Scanner x = new Scanner(System.in);
+
+      int refer = 20;
+      boolean bol = true;
+      
+      
+      while(bol == true){
+          
+           if(refer%20 == 0){
+              bst.del_ref(refer);
+               System.out.println("Value under "+refer+" deleted");
+            }
+          System.out.println("1. Enter request value:");
+          System.out.println("2. Enter cancel value :");
+          System.out.println("3. Enter Divert Value :");
+          System.out.println("4. EXIT ");
+          System.out.println("5. Check refeence time");
+          System.out.println("6. Print in inorder");
+          int num = x.nextInt();
+          
+         
+          
+          if(num == 1){
+              refer++;
+              System.out.println("Enter value to request :");
+              int val = x.nextInt();
+              if(bst.che_input(val) == true){
+                  bst.insert(val);
+                  System.out.println("Done");
+              }
+              else if(bst.che_input(val)== false)
+                  System.out.println("Input invalid ");
+              bol = true ;
+          }
+          
+          else if(num ==2){
+              refer++;
+              System.out.println("Enter value to cancel :");
+              int can = x.nextInt();
+              bst.delete(can);
+              bol =true;
+          }
+          
+          else if(num == 3){
+              System.out.println("Enter value to Divert :");
+              int div =x.nextInt();
+              bst.delete(div);
+              refer++;
+              bol = true;
+          }
+          
+          else if(num ==4){
+              bol =false;
+          }
+          else if(num ==5){
+              System.out.println("Reference time is :"+refer);
+          }
+          else if(num == 6){
+              bst.inorder();
+          }
+          else 
+              bol =true;
+          
+      }
+      
+      
+      
+    }
+    
+}
