@@ -1,0 +1,78 @@
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class AlgoLab8Q1 {
+
+    public static void main(String[] args) {
+        
+        
+        Scanner x = new Scanner(System.in);
+        Scanner y = new Scanner(System.in);
+        Scanner nam = new Scanner(System.in);
+        
+        
+        Hashtable<String,String> hash = new Hashtable<String,String>();
+       
+        boolean bol = true;
+        
+        while(bol == true){
+            System.out.println("Enter 1 to add Student :");
+            System.out.println("Enter 2 to delete :");
+            System.out.println("Enter 3 to print :");
+            System.out.println("Enter 0 to exit system");
+            int num = x.nextInt();
+            
+            if(num == 0){
+                bol = false;
+            }
+            
+            else if (num == 1){
+                 System.out.println("Enter number of student to be add : ");
+                int p = x.nextInt();
+        
+                for(int i=0 ; i<p ; i++){
+                     System.out.println("Enter Student name :");
+                     String name = x.next();
+                     System.out.println("Enter Matric number :");
+                     String mat = y.next();
+                     hash.put(mat,name);           
+                  }
+                bol = true;
+            }
+            
+            else if(num == 2){
+                System.out.println("Enter number of student to be delete :");
+                int no = x.nextInt();
+                
+                for(int i =0 ; i<no; i++){
+                    System.out.println("Enter student matric number to be delete :");
+                    String del_name = nam.next();
+                    if(hash.containsKey(del_name) == true){
+                       hash.remove(del_name);  
+                    }
+                    else {
+                        System.out.println("No data ");
+                    }
+                      
+                } 
+                
+                bol = true;
+            }
+            
+            else if (num == 3){
+                String str;
+                Enumeration stud;
+                stud = hash.keys();
+                while(stud.hasMoreElements()){
+                    str = (String) stud.nextElement();
+                    System.out.println("Matric Number :" + str + " = Name: "+hash.get(str));
+                }
+               bol = true;  
+            }
+                
+        }
+     
+    }
+    
+}
