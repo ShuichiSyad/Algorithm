@@ -1,5 +1,5 @@
 
-package lab11;
+package l11Q2a;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Lab11Q2Kruskal {
+public class L11Q2a {
 
     private List<Edge> edges;
     private int numberOfVertices;
